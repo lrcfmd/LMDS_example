@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Example app</title>
+</head>
+
+
+<body>
+	<h1>Input a list of strings, we'll sort each string alphabetically</h1>
+	<form action="" method="POST">
+		
+			{{ form.csrf_token }}
+			{{ form.input_string(type="search", placeholder="comma seperated strings") }}
+			{{ form.submit() }} 
+	</form>
+	<a href="/example_static">Here is a link to another page</a>
+	{% if results %}		
+		<table>
+			<tr>
+				<th>Input String</th>
+				<th>Output String</th>
+			</tr>
+			{% for result in results %}
+			<tr>
+				<td> {{ result[0] }} </td>
+				<td> {{ result[1] }} </td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+	{% include 'footer.html' %}
+
+</body>
+</html>
